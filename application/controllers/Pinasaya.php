@@ -6,26 +6,17 @@ class Pinasaya extends CI_Controller{
 		parent::__construct();
 	}
 
-	public function home(){
-		$this->load->view('header', $_SESSION);
-		
-		$this->load->view('footer');
+	public function index(){
+		$this->load->view('content');
 	}
 
 	public function login(){
-		$this->load->view('header', $_SESSION);
-
-		$this->load->view('footer');
 	}
 
 	public function register(){
-		$this->load->view('header', $_SESSION);
-
-		$this->load->view('footer');
 	}
 	
 	public function upload(){
-
 		$upload_path = './uploads/'.$this->session->username.'/';
 
 		mkdir($upload_path);
