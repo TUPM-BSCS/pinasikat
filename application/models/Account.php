@@ -9,20 +9,33 @@ class Account extends CI_Model{
 
 	function register(){
 		$data = $_POST;
-		if(isset($data)){
-			$this->db->insert('account',$data);
+		$status = FALSE;
+		if(isset($data['username']) && isset($data['password'])){
+			unset($_POST);
+			$query = $this->db->get_where('account',$data);
+			if(!$query->num_rows()){
+				$status = TRUE;
+				$this->db->insert('account',$data);
+			}
 		}
 		unset($data);
-		unset($_POST);
+		return $status;
 	}
 
 	function login(){
 		$data = $_POST;
-		if(isset($data)){
+		$status = FALSE;
+		if(isset($data['username']) && isset($data['password'])){
+			unset($_POST);
 			$query = $this->db->get_where('account',$data);
+			if($query->num_rows()){
+				$status = TRUE;
+				$_SESSION['username'] = $query->row()->username;
+				$_SESSION['is_login'] = TRUE;
+			}
 		}
 		unset($data);
-		unset($_POST);
+		return $status;
 	}
 }
 

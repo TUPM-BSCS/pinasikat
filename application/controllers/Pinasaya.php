@@ -11,9 +11,21 @@ class Pinasaya extends CI_Controller{
 	}
 
 	public function login(){
+		$this->load->model('account');
+		if($this->account->login()){
+			//load view with profile enabled
+		}else{
+			//show error message and redirect
+		}
 	}
 
 	public function register(){
+		$this->load->model('account');
+		if($this->account->register()){
+			//load view welcome
+		}else{
+			//load view error message and redirect
+		}
 	}
 	
 	public function upload(){
