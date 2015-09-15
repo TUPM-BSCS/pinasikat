@@ -19,6 +19,10 @@ class Pinasaya extends CI_Controller{
 		}
 	}
 
+	public function create(){
+		$this->load->view('upload_form');
+	}
+
 	public function register(){
 		$this->load->model('account');
 		if($this->account->register()){
