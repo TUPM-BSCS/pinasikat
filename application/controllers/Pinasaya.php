@@ -12,6 +12,7 @@ class Pinasaya extends CI_Controller{
 			$this->load->view('header-nav');
 		else
 			$this->load->view('header-nav');
+		$this->load->view('parallax');
 		$this->load->view('footer');
 
 	}

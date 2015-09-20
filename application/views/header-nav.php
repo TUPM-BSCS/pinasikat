@@ -70,22 +70,19 @@
           <div class="nav-wrapper">
           <a href="#" data-activates="mobile-demo" class="button-collapse white-text"><i class="material-icons">menu</i></a>
           <a href="#" class="brand-logo center"><img src="images/logo2.png" class="responsive-img" alt="logo"></a>
-
-          <?php
-
-          if(!isset($_SESSION['username'])){
-            echo 
-            '
-            <ul class="right hide-on-med-and-down">
-            <li><a href="#modal2" class="waves-effect waves-light modal-trigger white-text">Sign In</a></li>
-            <li><a href="#modal1" class="waves-effect waves-light modal-trigger white-text">Sign Up</a></li>
-            </ul> 
-            ';
-          }
-
-          ?>
                    
           <ul class="side-nav fixed black-text collapsible collapsible-accordion">
+            <?php
+
+              if(!isset($_SESSION['username'])){
+                echo 
+                '
+                <li><a href="#modal2" class="waves-effect waves-light modal-trigger blue-text">Sign In</a></li>
+                <li><a href="#modal1" class="waves-effect waves-light modal-trigger blue-text">Sign Up</a></li>
+                ';
+              }
+
+            ?>
             <li><a href="#">SEARCH</a></li>
 
             <?php 
