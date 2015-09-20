@@ -106,11 +106,35 @@
             <li><a href="#">THEME PARK</a></li>
             <li><a href="#">NATURE</a></li>
           </ul>
-          <ul class="side-nav" id="mobile-demo">
+          <ul class="side-nav collapsible collapsible-accordion" id="mobile-demo">
             <!-- dynamic controls here -->
-            <li><a href="#modal1" class="waves-effect waves-light modal-trigger blue-text">Sign Up</a></li>
-            <li><a href="#modal2" class="waves-effect waves-light modal-trigger blue-text">Sign In</a></li>
+            <?php
+
+              if(!isset($_SESSION['username'])){
+                echo 
+                '
+                <li><a href="#modal2" class="waves-effect waves-light modal-trigger blue-text">Sign In</a></li>
+                <li><a href="#modal1" class="waves-effect waves-light modal-trigger blue-text">Sign Up</a></li>
+                ';
+              }
+
+            ?>
             <li><a href="#">SEARCH</a></li>
+            <?php 
+            if(isset($_SESSION['username'])){
+              echo '
+                <li class="no-padding">
+                  <a class="collapsible-header">'.$_SESSION['username'].'</a>
+                  <div class="collapsible-body">
+                    <ul>
+                      <li><a href="'.$_SESSION['username'].'">Profile</a></li>
+                      <li><a href="logout">Logout</a></li>
+                    </ul>
+                  </div>
+                </li>
+              ';
+            }
+            ?>
             <li><a href="#">ACCOUNT</a></li>
             <li><a href="#">RESTAURANTS</a></li>
             <li><a href="#">POOL AND BEACH</a></li>
