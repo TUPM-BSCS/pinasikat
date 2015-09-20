@@ -7,21 +7,23 @@ class Account extends CI_Model{
 		$this->load->database();
 	}
 
-	function register(){
+	function signup(){
 		$data = $_POST;
 		$user['username'] = $data['username'];
+		$status = FALSE;
 		if(isset($data['username']) && isset($data['password'])){
 			unset($_POST);
 			$query = $this->db->get_where('account',$user);
 			if(!$query->num_rows()){
-				$status = TRUE;
+				$data['password'] = $this->encrypt->encode($data['password']);
 				$this->db->insert('account',$data);
+				$status = TRUE;
 			}
 		}
 		return $status;
 	}
 
-	function login(){
+	function signin(){
 		$data = $_POST;
 		$status = FALSE;
 		$user['username'] = $data['username'];
@@ -31,7 +33,6 @@ class Account extends CI_Model{
 			if($query->num_rows() && ($this->encrypt->decode($query->row()->password) == $data['password']) ){
 				$status = TRUE;
 				$_SESSION['username'] = $query->row()->username;
-				$_SESSION['is_login'] = TRUE;
 			}
 		}
 		return $status;
