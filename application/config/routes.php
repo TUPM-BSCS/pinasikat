@@ -53,8 +53,11 @@ $route['default_controller'] = 'pinasaya/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['signin'] = 'pinasaya/signin';
-$route['signup'] = 'pinasaya/signup';
+$route['login'] = 'pinasaya/login';
+$route['registration'] = 'pinasaya/registration';
+$route['register'] = 'pinasaya/register';
 $route['upload'] = 'pinasaya/upload';
-$route['test'] = 'pinasaya/test';
+$route['(:any)/logout'] = 'pinasaya/logout';
 $route['logout'] = 'pinasaya/logout';
+$route['(:any)/profile/(:any)'] = 'pinasaya/profile/$1';
+$route['profile/(:any)'] = 'pinasaya/profile/$1';

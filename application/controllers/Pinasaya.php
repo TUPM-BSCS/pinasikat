@@ -7,19 +7,10 @@ class Pinasaya extends CI_Controller{
 	}
 
 	public function index(){
-		$this->load->view('prereq');
-		if(isset($_SESSION['data']))
-			$this->load->view('header-nav');
-		else
-			$this->load->view('header-nav');
-		$this->load->view('parallax');
+		$this->load->view('header-nav-v2');
+		$this->load->view('modals');
+		$this->load->view('content');
 		$this->load->view('footer');
-
-	}
-
-	public function test(){
-		$this->load->view('prereq');
-		$this->load->view('test');
 	}
 
 	public function logout(){
@@ -29,38 +20,43 @@ class Pinasaya extends CI_Controller{
 		}
 	}
 
-	public function signin(){
+	public function login(){
 		$this->load->model('account');
-		if($this->account->signin()){
-			//load view with profile enabled
+		if($this->account->login()){
 			$_SESSION['msg'] = 'Welcome '.$_SESSION['username'].'!';
 			$_SESSION['notified'] = FALSE;
-			redirect(base_url());
+			echo $result = 1;
 		}else{
-			//show error message and redirect
-			$_SESSION['msg'] = 'Username or password is invalid!';
-			$_SESSION['notified'] = FALSE;
-			redirect(base_url());
+			echo $result = 0;
 		}
 	}
 
-	public function create(){
-		$this->load->view('upload_form');
+	public function registration(){
+		if(!isset($_SESSION['username'])){
+			$this->load->view('header-nav-v2');
+			$this->load->view('register');
+			$this->load->view('modals');
+			$this->load->view('scripts');
+		}else
+			redirect(base_url());
 	}
 
-	public function signup(){
+	public function register(){
 		$this->load->model('account');
-		if($this->account->signup()){
-			//load view welcome
-			$_SESSION['msg'] = 'Sign-up was successful! You may now sign-in.';
+		if($this->account->register()){
 			$_SESSION['notified'] = FALSE;
 			redirect(base_url());
 		}else{
-			//load view error message and redirect
-			$_SESSION['msg'] = 'The username is already taken. Please try again.';
 			$_SESSION['notified'] = FALSE;
 			redirect(base_url());
 		}
+	}
+
+	public function profile($username){
+		$this->load->view('header-nav-v2');
+		$this->load->view('profile');
+		$this->load->view('modals');
+		$this->load->view('scripts');
 	}
 	
 	public function upload(){
