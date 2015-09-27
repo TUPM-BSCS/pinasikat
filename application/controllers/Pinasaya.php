@@ -34,9 +34,9 @@ class Pinasaya extends CI_Controller{
 	public function registration(){
 		if(!isset($_SESSION['username'])){
 			$this->load->view('header-nav-v2');
-			$this->load->view('register');
 			$this->load->view('modals');
-			$this->load->view('scripts');
+			$this->load->view('register');
+			$this->load->view('footer');
 		}else
 			redirect(base_url());
 	}
@@ -44,19 +44,19 @@ class Pinasaya extends CI_Controller{
 	public function register(){
 		$this->load->model('account');
 		if($this->account->register()){
-			$_SESSION['notified'] = FALSE;
-			redirect(base_url());
+			//$_SESSION['notified'] = FALSE;
+			//redirect(base_url());
 		}else{
-			$_SESSION['notified'] = FALSE;
-			redirect(base_url());
+			//$_SESSION['notified'] = FALSE;
+			//redirect(base_url());
 		}
 	}
 
 	public function profile($username){
 		$this->load->view('header-nav-v2');
-		$this->load->view('profile');
 		$this->load->view('modals');
-		$this->load->view('scripts');
+		$this->load->view('profile');
+		$this->load->view('footer');
 	}
 	
 	public function upload(){
