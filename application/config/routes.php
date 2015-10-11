@@ -49,15 +49,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'pinasaya/index';
+$route['default_controller'] = 'pinasikat/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['login'] = 'pinasaya/login';
-$route['registration'] = 'pinasaya/registration';
-$route['register'] = 'pinasaya/register';
-$route['upload'] = 'pinasaya/upload';
-$route['(:any)/logout'] = 'pinasaya/logout';
-$route['logout'] = 'pinasaya/logout';
-$route['(:any)/profile/(:any)'] = 'pinasaya/profile/$1';
-$route['profile/(:any)'] = 'pinasaya/profile/$1';
+$route['login'] = 'pinasikat/login';
+$route['registration'] = 'pinasikat/registration';
+$route['register'] = 'pinasikat/register';
+$route['upload'] = 'pinasikat/upload';
+$route['(:any)/logout'] = 'pinasikat/logout';
+$route['logout'] = 'pinasikat/logout';
+$route['(:any)/profile/(:any)'] = 'pinasikat/profile/$1';
+$route['profile/(:any)'] = 'pinasikat/profile/$1';

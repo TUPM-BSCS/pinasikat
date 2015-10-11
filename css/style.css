@@ -1,14 +1,5 @@
-main, footer, .tool-bar, .secondary-nav {
-	padding-left: 240px;
-}
 
-@media only screen and (max-width : 992px) {
-	main, footer, .tool-bar, .secondary-nav {
-	  padding-left: 0px;
-	}
-}
-
- /* label color */
+/* label color */
 .input-field label {
  color: #000;
 }
@@ -54,4 +45,36 @@ main, footer, .tool-bar, .secondary-nav {
 /* icon prefix focus color */
 .input-field .prefix.active {
  color: #000;
+}
+
+.side-nav li a{
+	color: black;
+}
+
+.left-side-nav {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 240px;
+	margin-top: 64px;
+	height: 100%;
+}
+
+.left-side-nav li {
+	width: 100%;
+}
+
+.left-side-nav li a {
+	color: black;
+	margin-left: 15px;
+}
+
+.content{
+	padding-left: 200px;
+}
+
+@media only screen and (max-width: 992px){
+	.content {
+		padding-left: 0px;
+	}
 }
