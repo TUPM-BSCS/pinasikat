@@ -55,6 +55,42 @@ $(document).ready(function(){
     var fname = $('#fname').val();
     var lname = $('#lname').val();
 
+    //Start of Form Validation -----------------------------------------------------
+    
+    var con = /^[A-Za-z]+$/;
+
+    if((con.test(username) == false) || (username.length > 20)){
+      $('#username-r').val('');
+      Materialize.toast('Invalid username!', 3000)
+    } else{
+      username = username.toUpperCase();
+    }
+
+    if((con.test(fname) == false) || (fname.length > 10)){
+      $('#fname').val('');
+      Materialize.toast('Invalid first name!', 3000)
+    } else{
+      fname = fname.toUpperCase();
+    }
+
+    if((con.test(lname) == false) || (lname.length > 10)){
+      $('#lname').val('');
+      Materialize.toast('Invalid last name!', 3000)
+    } else{
+      lname = lname.toUpperCase();
+    }
+
+    if ((password1 !== password2) || (password1.length > 20)){
+      $('#password1').val('');
+      $('#password2').val('');
+      Materialize.toast('Invalid password!', 3000)
+    };
+    else{
+      password1 = password1.toUpperCase();
+    }
+
+    //End of Form Validation ---------------------------------------------------------
+
     $.post('register',
     {
       'username': username,
