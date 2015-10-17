@@ -5,20 +5,20 @@
 	      	<div class="col s12 m6 l6">
 	      		<div class="input-field">
 	      			<input type="text" id="username" name="username" required>
-	      			<label for="username">USERNAME</label>
+	      			<label for="username">Username</label>
 	      		</div>
 	      	</div>
 	      	<div class="col s12 m6 l6">
 	      		<div class="input-field">
 	      			<input type="password" id="password" name="password" required>
-	      			<label for="password">PASSWORD</label>
+	      			<label for="password">Password</label>
 	      		</div>
 	      	</div>
 	    </div>
     </div>
     <div class="modal-footer">
-      <button id="reset" class="modal-action waves-effect waves-blue btn-flat">Clear</button>
-      <button id="submit" class="modal-action waves-effect waves-blue btn-flat">Login</button>
+      <a id="reset" class="waves-effect waves-grey btn-flat">Clear</a>
+      <a id="submit" class="waves-effect waves-grey btn-flat">Login</a>
     </div>
   </div>
 </header>

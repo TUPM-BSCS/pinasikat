@@ -23,7 +23,7 @@ class Pinasikat extends CI_Controller{
 	public function login(){
 		$this->load->model('accounts');
 		if($this->accounts->login()){
-			$_SESSION['msg'] = 'Welcome '.$_SESSION['username'].'!';
+			$_SESSION['msg'] = 'Welcome '.$_SESSION['fname'].' '.$_SESSION['lname'].'!';
 			$_SESSION['notified'] = FALSE;
 			echo $result = 1;
 		}else{
