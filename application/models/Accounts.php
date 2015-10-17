@@ -13,6 +13,7 @@ class Accounts extends CI_Model{
 		$data['password'] = $this->encrypt->encode($data['password']);
 		if($this->db->insert('accounts',$data)){
 			$_SESSION['msg'] = 'Sign-up was successful! You may now sign-in.';
+			mkdir("users/".$data['username']);
 			return TRUE;
 		}
 		else{

@@ -97,9 +97,14 @@
   </script>
   
 	<header>
+    
 		<div class="navbar-fixed">
 		  <nav class="black">
   			<div class="nav-wrapper">
+          <ul class='right hide-on-small-only'>
+            <li><a href="#login-modal">Login</a></li>
+            <li><a href="#registration">Register</a></li>
+          </ul>
   			  <a href="#" data-activates="mobile-demo" class="button-collapse white-text"><i class="material-icons">menu</i></a>
   			  <a href="<?php echo base_url();?>" class="brand-logo center"><img src="<?php echo base_url();?>images/logo.png" class="responsive-img"></a>
   			  <ul class="side-nav collapsible collapsible-accordion" id="mobile-demo">
