@@ -42,24 +42,32 @@ class Pinasikat extends CI_Controller{
 	}
 
 	public function register(){
-		$this->load->model('accounts');
-		if($this->accounts->register()){
-			$_SESSION['notified'] = FALSE;
-			$_SESSION['msg'] = 'Registration succesful! You can now login.';
-			//redirect(base_url());
-			echo $result = 1;
-		}else{
-			//$_SESSION['notified'] = FALSE;
-			//redirect(base_url());
-			echo $result = 0;
+		if($_SERVER['REQUEST_METHOD'] == 'POST'){
+			$this->load->model('accounts');
+			if($this->accounts->register()){
+				$_SESSION['notified'] = FALSE;
+				$_SESSION['msg'] = 'Registration succesful! You can now login.';
+				//redirect(base_url());
+				echo $result = 1;
+			}else{
+				//$_SESSION['notified'] = FALSE;
+				//redirect(base_url());
+				echo $result = 0;
+			}
 		}
+		else
+			redirect(base_url());
 	}
 
 	public function profile($username){
-		$this->load->view('header-nav-v2');
-		$this->load->view('modals');
-		$this->load->view('profile');
-		$this->load->view('footer');
+		if(isset($_SESSION['username'])){
+			$this->load->view('header-nav-v2');
+			$this->load->view('modals');
+			$this->load->view('profile');
+			$this->load->view('footer');
+		}
+		else
+			redirect(base_url());
 	}
 	
 	public function upload(){

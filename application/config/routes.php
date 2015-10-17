@@ -54,10 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'pinasikat/login';
-$route['registration'] = 'pinasikat/registration';
 $route['register'] = 'pinasikat/register';
 $route['upload'] = 'pinasikat/upload';
 $route['(:any)/logout'] = 'pinasikat/logout';
 $route['logout'] = 'pinasikat/logout';
-$route['(:any)/profile/(:any)'] = 'pinasikat/profile/$1';
 $route['profile/(:any)'] = 'pinasikat/profile/$1';
+$route['registration'] = 'pinasikat/registration';
