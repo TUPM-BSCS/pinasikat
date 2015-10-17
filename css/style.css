@@ -85,8 +85,6 @@
  color: #000;
 }
 
-.
-
 .left-side-nav {
 	background-color: white;
 }
@@ -113,12 +111,9 @@
 	margin-left: 15px;
 }
 
-.main{
+main{
 	padding-left: 240px;
 }
-
-.content{
-	padding-left: 250px
 
 @media only screen and (max-width: 992px){
 	main {
