@@ -1,8 +1,5 @@
-<main>
-	<div class='content'>	
-	
+<main>	
 	<div class="row">	
-
 		<div class="col s12 m4">
       		<div class="card">
     			<div class="card-image waves-effect waves-block waves-light">
@@ -146,9 +143,6 @@
     			</div>
     		</div>
     	</div>
-
     </div>		
-
-	</div>  
 </main>
 

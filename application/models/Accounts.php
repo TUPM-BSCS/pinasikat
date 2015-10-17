@@ -24,11 +24,12 @@ class Accounts extends CI_Model{
 	function login(){
 		$data = $_POST;
 		unset($_POST);
-		$user['username'] = $data['username'];
 		if(isset($data['username']) && isset($data['password'])){
-			$query = $this->db->get_where('accounts',$user);
-			if($query->num_rows() && ($this->encrypt->decode($query->row()->password) == $data['password']) ){
+			$query = $this->db->where('username',$data['username'])->get('accounts');
+			if($query->num_rows() && ($this->encrypt->decode($query->row()->password) == $data['password']) && ($query->row()->username == $data['username']) ){
 				$_SESSION['username'] = $query->row()->username;
+				$_SESSION['fname'] = $query->row()->fname;
+				$_SESSION['lname'] = $query->row()->lname;
 				return TRUE;
 			}
 		}
