@@ -58,22 +58,26 @@ $(document).ready(function(){
     //Start of Form Validation -----------------------------------------------------
     
     var con = /^[A-Za-z]+$/;
+    var flag = 0; 
 
     if((con.test(username) == false) || (username.length > 20)){
       $('#username-r').val('');
-      //Materialize.toast('Invalid username!', 3000)
+      Materialize.toast('Invalid username!', 3000)
+      flag = 1; 
     }
 
     if((con.test(fname) == false) || (fname.length > 10)){
       $('#fname').val('');
-      //Materialize.toast('Invalid first name!', 3000)
+      Materialize.toast('Invalid first name!', 3000)
+      flag = 1; 
     } else{
       fname = fname.toUpperCase();
     }
 
     if((con.test(lname) == false) || (lname.length > 10)){
       $('#lname').val('');
-      //Materialize.toast('Invalid last name!', 3000)
+      Materialize.toast('Invalid last name!', 3000)
+      flag = 1;
     } else{
       lname = lname.toUpperCase();
     }
@@ -81,28 +85,35 @@ $(document).ready(function(){
     if ((password1 !== password2) || (password1.length > 20)){
       $('#password1').val('');
       $('#password2').val('');
-      //Materialize.toast('Invalid password!', 3000)
+      flag = 1; 
+      Materialize.toast('Invalid password!', 3000)
     }
 
     //End of Form Validation ---------------------------------------------------------
+    if (flag !== 1) {
 
-    $.post('register',
-    {
-      'username': username,
-      'password': password1,
-      'fname': fname,
-      'lname': lname,
-      'permission': 1
-    },
-    function(result){
-      var int_result = Number(result);
-      if(int_result == 1){
-        location.reload(true);
-      }
-      else if(int_result == 0){
-        Materialize.toast('Username is already taken.',5000);
-      }
-    });
+      // Start of post
+      $.post('register',
+      {
+        'username': username,
+        'password': password1,
+        'fname': fname,
+        'lname': lname,
+        'permission': 1
+      },
+      function(result){
+        var int_result = Number(result);
+        if(int_result == 1){
+          location.reload(true);
+        }
+        else if(int_result == 0){
+          Materialize.toast('Username is already taken.',5000);
+        }
+      });
+      flag = 0;
+      // End of post
+
+    }
   });
 
   $('#clear-reg-form').click(function(){
