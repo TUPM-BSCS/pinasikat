@@ -56,7 +56,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'pinasikat/login';
 $route['register'] = 'pinasikat/register';
 $route['upload'] = 'pinasikat/upload';
-$route['(:any)/logout'] = 'pinasikat/logout';
+
 $route['logout'] = 'pinasikat/logout';
 $route['profile/(:any)'] = 'pinasikat/profile/$1';
 $route['registration'] = 'pinasikat/registration';
+$route['uploadform'] = 'pinasikat/uploadform';

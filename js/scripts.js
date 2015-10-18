@@ -61,21 +61,19 @@ $(document).ready(function(){
 
     if((con.test(username) == false) || (username.length > 20)){
       $('#username-r').val('');
-      Materialize.toast('Invalid username!', 3000)
-    } else{
-      username = username.toUpperCase();
+      //Materialize.toast('Invalid username!', 3000)
     }
 
     if((con.test(fname) == false) || (fname.length > 10)){
       $('#fname').val('');
-      Materialize.toast('Invalid first name!', 3000)
+      //Materialize.toast('Invalid first name!', 3000)
     } else{
       fname = fname.toUpperCase();
     }
 
     if((con.test(lname) == false) || (lname.length > 10)){
       $('#lname').val('');
-      Materialize.toast('Invalid last name!', 3000)
+      //Materialize.toast('Invalid last name!', 3000)
     } else{
       lname = lname.toUpperCase();
     }
@@ -83,10 +81,7 @@ $(document).ready(function(){
     if ((password1 !== password2) || (password1.length > 20)){
       $('#password1').val('');
       $('#password2').val('');
-      Materialize.toast('Invalid password!', 3000)
-    };
-    else{
-      password1 = password1.toUpperCase();
+      //Materialize.toast('Invalid password!', 3000)
     }
 
     //End of Form Validation ---------------------------------------------------------
@@ -117,5 +112,7 @@ $(document).ready(function(){
     $('#fname').val('');
     $('#lname').val('');
   });
+
+  $("#upload-notif")
 
 });

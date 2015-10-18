@@ -37,90 +37,13 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
-/* label color */
-.input-field label {
- color: #000;
-}
-/* label focus color */
-.input-field input[type=text]:focus + label {
- color: #000;
-}
-/* label underline focus color */
-.input-field input[type=text]:focus {
- border-bottom: 1px solid #000;
- box-shadow: 0 1px 0 0 #000;
-}
-/* valid color */
-.input-field input[type=text].valid {
- border-bottom: 1px solid green;
- box-shadow: 0 1px 0 0 #000;
-}
-/* invalid color */
-.input-field input[type=text].invalid {
- border-bottom: 1px solid red;
- box-shadow: 0 1px 0 0 #000;
-}
 
-/* label focus color */
-.input-field input[type=password]:focus + label {
- color: #000;
-}
-/* label underline focus color */
-.input-field input[type=password]:focus {
- border-bottom: 1px solid #000;
- box-shadow: 0 1px 0 0 #000;
-}
-/* valid color */
-.input-field input[type=password].valid {
- border-bottom: 1px solid green;
- box-shadow: 0 1px 0 0 #000;
-}
-/* invalid color */
-.input-field input[type=password].invalid {
- border-bottom: 1px solid red;
- box-shadow: 0 1px 0 0 #000;
-}
-/* icon prefix focus color */
-.input-field .prefix.active {
- color: #000;
-}
-
-.left-side-nav {
-	background-color: white;
-}
-
-.side-nav li a{
-	color: black;
-}
-
-.left-side-nav {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 240px;
-	margin-top: 64px;
-	height: 100%;
-}
-
-.left-side-nav li {
-	width: 100%;
-}
-
-.left-side-nav li a {
-	color: black;
-	margin-left: 15px;
-}
-
-main{
+main, header, footer{
 	padding-left: 240px;
 }
 
 @media only screen and (max-width: 992px){
-	main {
+	main, header, footer {
 		padding-left: 0px;
 	}
-}
-
-.dropdown-content li a {
-	color: black;
 }
