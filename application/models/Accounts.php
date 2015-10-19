@@ -34,10 +34,6 @@ class Accounts extends CI_Model{
 		}
 		return FALSE;
 	}
-
-	function load_basic_info(){
-		
-	}
 }
 
 ?>

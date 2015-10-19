@@ -1,5 +1,8 @@
 <main>
-  <form method="post" enctype="multipart/form-data" action="upload" id="info-form">
+  <?php 
+    
+  ?>
+  <form method="post" enctype="multipart/form-data" action="<?php echo base_url("upload");?>" id="art-form">
     <div class="row">
       <div class="input-field col s12">
         <input id="art_name" name='art_name' type="text" length="500" required>
@@ -22,17 +25,23 @@
         <label for="art_street">City</label>
       </div>
     </div>
+    <div class="row">
+      <div class="col s12">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Attach</span>
+            <input type="file" name="file[]" multiple>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Please attach at least 5 photos.">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <button class="btn waves-effect waves-light" type="submit">Submit</button>
+      </div>
+    </div>
   </form>
-  <div class="row">
-    <div class="col s12">
-      <form method="post" enctype="multipart/form-data" action="dzupload" class="dropzone" id="imagesForm"></form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s12">
-      <button id="art-submit" class="btn waves-effect waves-light">Submit</button>
-    </div>
-  </div>
-  <script type="text/javascript" src="<?php echo base_url();?>js/dropzone.js"></script>
-  <script type="text/javascript" src="<?php echo base_url();?>js/article.js"></script>
 </main>

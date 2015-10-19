@@ -7,9 +7,10 @@ class Pinasikat extends CI_Controller{
 	}
 
 	public function index(){
+		$this->load->model('articles');
 		$this->load->view('header-nav-v2');
 		$this->load->view('modals');
-		$this->load->view('content');
+		$this->load->view('content', $this->articles->fetch_from_all(0,10));
 		$this->load->view('footer');
 	}
 
@@ -86,12 +87,6 @@ class Pinasikat extends CI_Controller{
 		$this->articles->upload();
 		redirect(base_url("uploadform"));
 	}
-
-	public function dzupload(){
-		$this->load->model('articles');
-		$this->articles->dzupload();
-	}
-
 }
 
 ?>

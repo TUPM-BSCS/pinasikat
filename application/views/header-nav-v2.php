@@ -38,8 +38,7 @@
 			  <a href="<?php echo base_url();?>" class="brand-logo center"><img src="<?php echo base_url();?>images/logo.png" class="responsive-img"></a>
         </ul>
 			  <ul class="side-nav fixed collapsible collapsible-accordion" id="mobile-demo">
-          <li style="padding-top:62px"></li>
-          <li class="no-padding">
+          <li class="no-padding" style="margin-top:62px">
             <a class="collapsible-header">ACCOUNT</a>
             <ul class='collapsible-body'>
               <?php
@@ -56,10 +55,39 @@
               ?>
             </ul>
           </li>
-  				<li><a href="#">RESTAURANTS</a></li>
-  				<li><a href="#">POOL AND BEACH</a></li>
-  				<li><a href="#">THEME PARK</a></li>
-  				<li><a href="#">NATURE</a></li>
+          <li><a href="">TOP 10</a></li>
+  				<li class="no-padding">
+            <a href="#" class="collapsible-header">RESTAURANTS</a>
+            <ul class="collapsible-body">
+              <li><a href="">CATEGORY 1</a></li>
+              <li><a href="">CATEGORY 2</a></li>
+              <li><a href="">CATEGORY 3</a></li>
+            </ul>
+          </li>
+  				<li class="no-padding">
+            <a href="#" class="collapsible-header">POOLS AND BEACH</a>
+            <ul class="collapsible-body">
+              <li><a href="">CATEGORY 1</a></li>
+              <li><a href="">CATEGORY 2</a></li>
+              <li><a href="">CATEGORY 3</a></li>
+            </ul>
+          </li>
+  				<li class="no-padding">
+            <a href="#" class="collapsible-header">THEME PARKS</a>
+            <ul class="collapsible-body">
+              <li><a href="">CATEGORY 1</a></li>
+              <li><a href="">CATEGORY 2</a></li>
+              <li><a href="">CATEGORY 3</a></li>
+            </ul>
+          </li>
+  				<li class="no-padding">
+            <a href="#" class="collapsible-header">NATURE</a>
+            <ul class="collapsible-body">
+              <li><a href="">CATEGORY 1</a></li>
+              <li><a href="">CATEGORY 2</a></li>
+              <li><a href="">CATEGORY 3</a></li>
+            </ul>
+          </li>
   			</ul>
 			</div>
 	  </nav>
