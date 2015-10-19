@@ -42,6 +42,31 @@ main, header, footer{
 	padding-left: 240px;
 }
 
+.contentv1{
+  padding-left: 250px;
+  padding-right: 10px;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 2.1em;
+  margin-right: 10px;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
+.commentrow{
+  padding-bottom: 5px;
+}
+
 @media only screen and (max-width: 992px){
 	main, header, footer {
 		padding-left: 0px;
