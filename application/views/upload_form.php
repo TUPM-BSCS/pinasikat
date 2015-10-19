@@ -1,59 +1,38 @@
 <main>
-  <?php
-    if(isset($successful)){
-      if($successful){
-        //notif green   
-        echo '<div class="section green center" id="upload-notif">
-                <span>Your arcticle has been submitted. It will be published soon after passing the evaluation.</span>
-              </div>';  
-      }else{
-        //error red
-        echo '<div class="section red center" id="upload-notif">
-                <span>Please try again. Make sure all fields have valid inputs.</span>
-              </div>'; 
-      }
-    } 
-  ?>
-  <?php echo form_open_multipart('upload');?>
+  <form method="post" enctype="multipart/form-data" action="upload" id="info-form">
     <div class="row">
       <div class="input-field col s12">
-        <input id="art_name" name='art_name' type="text" length="500" value="<?php if(isset($art_name)) echo $art_name;?>" required>
+        <input id="art_name" name='art_name' type="text" length="500" required>
         <label for="art_name">Title</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <textarea id="art_desc" name='art_desc' class="materialize-textarea" length="120" required><?php if(isset($art_desc)) echo $art_desc;?></textarea>
+        <textarea id="art_desc" name='art_desc' class="materialize-textarea" length="120" required></textarea>
         <label for="art_desc">About This Place</label>
       </div>
     </div>
     <div class="row">
       <div class="col s12 m6 l6 input-field">
-        <input type='text' id='art_addr' name='art_addr' value="<?php if(isset($art_addr)) echo $art_addr;?>" required>
+        <input type='text' id='art_addr' name='art_addr' value="" required>
         <label for="art_street">Address</label>
       </div>
       <div class="col s12 m6 l6 input-field">
-        <input type='text' id='art_city' name='art_city' value="<?php if(isset($art_city)) echo $art_city;?>" required>
+        <input type='text' id='art_city' name='art_city' value="" required>
         <label for="art_street">City</label>
       </div>
     </div>
-    <div class="row">
-      <div class="col s12">
-        <div class="input-field file-field">
-          <div class="btn">
-            <span>Photos</span>
-            <input type="file" name="images[]" multiple>
-          </div>
-          <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="Upload at least 10 photos.">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-        <button class="waves-effect waves-light btn right" id="art_submit" type="submit">CREATE</button>
-      </div>
-    </div>
   </form>
+  <div class="row">
+    <div class="col s12">
+      <form method="post" enctype="multipart/form-data" action="dzupload" class="dropzone" id="imagesForm"></form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <button id="art-submit" class="btn waves-effect waves-light">Submit</button>
+    </div>
+  </div>
+  <script type="text/javascript" src="<?php echo base_url();?>js/dropzone.js"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>js/article.js"></script>
 </main>

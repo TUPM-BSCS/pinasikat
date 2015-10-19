@@ -5,27 +5,30 @@
     <meta charset="utf-8">
     <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>css/materialize.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>css/style.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>css/dropzone.css"  media="screen,projection"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <script type="text/javascript" src="<?php echo base_url();?>js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>js/materialize.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>js/scripts.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>js/login.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        <?php
+          if( isset($_SESSION['msg']) && isset($_SESSION['notified']) ){
+            if(!$_SESSION['notified']){
+              echo "Materialize.toast('".$_SESSION['msg']."',3000);";
+              $_SESSION['notified'] = TRUE;
+            }
+            unset($_SESSION['msg']);                
+          }
+        ?>
+      });
+    </script>
+    
   </head>
 <body>
-  
-  <script type="text/javascript" src="<?php echo base_url();?>js/jquery.js"></script>
-  <script type="text/javascript" src="<?php echo base_url();?>js/materialize.min.js"></script>
-  <script type="text/javascript" src="<?php echo base_url();?>js/scripts.js"></script>
-  
-  <script type="text/javascript">
-  $(document).ready(function(){
-    <?php
-      if( isset($_SESSION['msg']) && isset($_SESSION['notified']) ){
-        if(!$_SESSION['notified']){
-          echo "Materialize.toast('".$_SESSION['msg']."',3000);";
-          $_SESSION['notified'] = TRUE;
-        }
-        unset($_SESSION['msg']);                
-      }
-    ?>
-  });
-  </script>
 
 	<header>
 	  <nav>

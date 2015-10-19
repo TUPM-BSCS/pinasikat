@@ -61,3 +61,4 @@ $route['logout'] = 'pinasikat/logout';
 $route['profile/(:any)'] = 'pinasikat/profile/$1';
 $route['registration'] = 'pinasikat/registration';
 $route['uploadform'] = 'pinasikat/uploadform';
+$route['dzupload'] = 'pinasikat/dzupload';

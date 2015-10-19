@@ -8,41 +8,40 @@ class Articles extends CI_Model {
 	}
 	
 	function upload(){
-		try{
-		foreach ($_FILES["images"]["error"] as $key => $error) {
-		    if ($error == UPLOAD_ERR_OK) {
 
-		        $tmp_name = $_FILES["images"]["tmp_name"][$key];
-		        $name = $_FILES["images"]["name"][$key];
-		        $size = $_FILES["images"]["size"][$key];
-		        $type = $_FILES["images"]["type"][$key];
+		$data = array(
 
-		    	$fp = fopen($tmp_name, 'r');
+			'name' => $_POST['art_name'],
+			'addr' => $_POST['art_addr'],
+			'desc' => $_POST['art_desc'],
+			'username' => $_SESSION['username'],
+			'path' => $_SESSION['path']
 
-		    	$content = fread($fp, filesize($tmp_name));
-				$content = addslashes($content);
-				fclose($fp);
+		);
 
-				if(!get_magic_quotes_gpc()){
-					$name = addslashes($name);
-				}
+		$this->db->insert("articles",$data);
+		unset($_POST);
+		unset($_SESSION['path']);
+	}
 
-		        $data = array(
-					'name' => $name,
-					'type' => $type,
-					'size' => $size,
-					'content' => $content
-				);
+	function dzupload(){
 
-		        $this->db->insert('images',$data);
-		    }
+		if(!isset($_SESSION['path'])){
+			$this->db->where("username",$_SESSION['username']);
+			$this->db->from("articles");
+			$count = $this->db->count_all_results() + 1;
+
+			$_SESSION['path'] = 'users/'.$_SESSION['username'].'/article'.$count;
 		}
 
-		return TRUE;
+		mkdir($_SESSION['path']);			
+
+		foreach ($_FILES['images']['error'] as $key => $error) {
+			if($error == UPLOAD_ERR_OK){
+				move_uploaded_file($_FILES["images"]["tmp_name"][$key], $_SESSION['path'].'/'.$_FILES['images']['name'][$key]);
+			}
 		}
-		catch(Exception $ex){
-			return FALSE;
-		}
+		
 	}
 }
 

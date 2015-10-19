@@ -74,10 +74,7 @@ class Pinasikat extends CI_Controller{
 		if(isset($_SESSION['username'])){
 			$this->load->view('header-nav-v2');
 			$this->load->view('modals');
-			if(isset($_SESSION['data']))
-				$this->load->view('upload_form',$_SESSION['data']);
-			else
-				$this->load->view('upload_form');
+			$this->load->view('upload_form');
 			$this->load->view('footer');
 		}
 		else
@@ -86,28 +83,13 @@ class Pinasikat extends CI_Controller{
 
 	public function upload(){
 		$this->load->model('articles');
-		if($this->articles->upload()){
-			unset($_FILE);
-			unset($_POST);
-			unset($_SESSION['data']);
-			$_SESSION['data'] = array(
-				'successful' => TRUE
-				);
-			redirect(base_url("uploadform"));
-		}
-		else{
-			$_SESSION['data'] = array(
-				'art_name' => $_POST['art_name'],
-				'art_desc' => $_POST['art_desc'],
-				'art_addr' => $_POST['art_addr'],
-				'art_city' => $_POST['art_city'],
-				'successful' => FALSE
-				);
-			unset($_FILE);
-			unset($_POST);
-			redirect(base_url("uploadform"));
-		}
-		
+		$this->articles->upload();
+		redirect(base_url("uploadform"));
+	}
+
+	public function dzupload(){
+		$this->load->model('articles');
+		$this->articles->dzupload();
 	}
 
 }

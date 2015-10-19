@@ -21,4 +21,3 @@
       <a id="submit" class="waves-effect waves-grey btn-flat">Login</a>
     </div>
   </div>
-</header>
