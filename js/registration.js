@@ -1,20 +1,102 @@
 $(document).ready(function(){
 
-$("#username-r").keydown(function(){
-  var username = $('#username-r').val();
+  var con = /^[A-Za-z]+$/;
   var flag = 0;
 
-  $("#username-label").text("Username");
+  $("#username-r").keydown(function(){
+    var username = $('#username-r').val();
+    var flag = 0;
 
-  if(username.length < 5){
-    $("#username-label").text("Username must be at least 5 characters.");
-    flag = 1;
-  }
-  if(username.length > 20){
-    $("#username-label").text("Username can not exceed 20 characters.");
-    flag = 1;
-  }
-});
+    $("#username-label").text("Username");
+
+    if(username.length < 5){
+      $("#username-label").text("Username must be at least 5 characters.");
+      flag = 1;
+    }
+    else if(username.length > 20){
+      $("#username-label").text("Username can not exceed 20 characters.");
+      flag = 1;
+    }
+    else{
+      flag = 0;
+    }
+  });
+
+  $("#fname").keydown(function(){
+    var fname = $('#fname').val();
+    var flag = 0;
+
+    $("#fname-label").text("First Name");
+
+    if(con.test(fname) == false){
+      $("#fname-label").text("First Name cannot contain special characters");
+      flag = 1;
+    }
+    else if(fname.length > 10){
+      $("#fname-label").text("First Name can not exceed 10 characters.");
+      flag = 1;
+    }
+    else{
+      flag = 0;
+    }
+  });
+
+  $("#lname").keydown(function(){
+    var lname = $('#lname').val();
+    var flag = 0;
+
+    $("#lname-label").text("Last Name");
+
+    if(con.test(lname) == false){
+      $("#lname-label").text("Last Name cannot contain special characters.");
+      flag = 1;
+    }
+    else if(lname.length > 15){
+      $("#lname-label").text("Last Name can not exceed 15 characters.");
+      flag = 1;
+    }
+    else{
+      flag = 0;
+    }
+  });
+
+  $("#password1").keydown(function(){
+    var password1 = $('#password1').val();
+    var flag = 0;
+
+    $("#password1-label").text("Password");
+
+    if(password1.length < 5){
+      $("#password1-label").text("Password must be at least 5 characters.");
+      flag = 1;
+    }
+    else if(password1.length > 20){
+      $("#password1-label").text("Password can not exceed 20 characters.");
+      flag = 1;
+    }
+    else{
+      flag = 0;
+    }
+  });
+
+  $("#password2").keydown(function(){
+    var password2 = $('#password2').val();
+    var flag = 0;
+
+    $("#password2-label").text("Last Name");
+
+    if(password2.length < 5){
+      $("#password2-label").text("Password must be at least 5 characters.");
+      flag = 1;
+    }
+    else if(password2.length > 20){
+      $("#password2-label").text("Password can not exceed 20 characters.");
+      flag = 1;
+    }
+    else{
+      flag = 0;
+    }
+  });
 
 $('#submit-reg-form').click(function(){
 
@@ -61,23 +143,34 @@ $('#submit-reg-form').click(function(){
   if (flag != 1) {*/
 
     // Start of post
-    $.post('register',
-    {
-      'username': username,
-      'password': password1,
-      'fname': fname,
-      'lname': lname,
-      'permission': 1
-    },
-    function(result){
-      var int_result = Number(result);
-      if(int_result == 1){
-        location.reload(true);
-      }
-      else if(int_result == 0){
-        Materialize.toast('Username is already taken.',500);
-      }
-    });
+    if (password1 !== password2){
+      flag = 1;
+      $("#password1-label").text("Passwords do not match each other.");
+      $("#password2-label").text("Passwords do not match each other.");
+      //Materialize.toast('Invalid password!', 3000)
+    }
+    else{
+      flag = 0;
+    }
+    if(flag == 0){
+      $.post('register',
+      {
+        'username': username,
+        'password': password1,
+        'fname': fname,
+        'lname': lname,
+        'permission': 1
+      },
+      function(result){
+        var int_result = Number(result);
+        if(int_result == 1){
+          location.reload(true);
+        }
+        else if(int_result == 0){
+          Materialize.toast('Username is already taken.',500);
+        }
+      });
+    }
     // End of post
 
   //}
