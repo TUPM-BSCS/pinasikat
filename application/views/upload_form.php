@@ -1,6 +1,6 @@
 <main>
   <?php 
-    
+  
   ?>
   <form method="post" enctype="multipart/form-data" action="<?php echo base_url("article/create");?>" id="art-form">
     <div class="row">
@@ -30,7 +30,7 @@
         <div class="file-field input-field">
           <div class="btn">
             <span>Attach</span>
-            <input type="file" name="file[]" multiple>
+            <input type="file" name="file[]" accept=".jpeg, .jpg, .jpe, .jfif, .jif, .png, .gif" multiple>
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="Please attach at least 5 photos.">
@@ -44,4 +44,5 @@
       </div>
     </div>
   </form>
+
 </main>
