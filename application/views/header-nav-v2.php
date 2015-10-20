@@ -34,7 +34,11 @@
 	  <nav class="headerz">
 			<div class="nav-wrapper headerz">
 			  <a href="#" data-activates="mobile-demo" class="button-collapse white-text"><i class="material-icons">menu</i></a>
+<<<<<<< Updated upstream
 			  <a href="<?php echo base_url();?>" class="brand-logo right"><img src="<?php echo base_url();?>images/logo2.png" class="responsive-img"></a>
+=======
+			  <a href="<?php echo base_url();?>" class="brand-logo center"><img src="<?php echo base_url();?>images/logo2.png" class="responsive-img"></a>
+>>>>>>> Stashed changes
         </ul>
 			  <ul class="side-nav fixed collapsible collapsible-accordion" id="mobile-demo">
           <li class="no-padding" style="margin-top:62px">
@@ -48,44 +52,44 @@
                   ';
                 else{
                   echo '<li>'.anchor('profile/'.$_SESSION['username'], $_SESSION['fname']).'</li>';
-                  echo '<li>'.anchor('uploadform', 'CREATE').'</li>';
+                  echo '<li>'.anchor('article/new', 'CREATE').'</li>';
                   echo '<li>'.anchor('logout', 'LOGOUT').'</li>';
                 }
               ?>
             </ul>
           </li>
-          <li><a href="">TOP 10</a></li>
+          <li><a href="<?php echo base_url("top");?>">TOP 10</a></li>
   				<li class="no-padding">
-            <a href="#" class="collapsible-header">RESTAURANTS</a>
-            <ul class="collapsible-body">
+            <a href="<?php echo base_url("category/restaurants/1");?>" class="collapsible-header">RESTAURANTS</a>
+            <!--<ul class="collapsible-body">
               <li><a href="">CATEGORY 1</a></li>
               <li><a href="">CATEGORY 2</a></li>
               <li><a href="">CATEGORY 3</a></li>
-            </ul>
+            </ul>-->
           </li>
   				<li class="no-padding">
-            <a href="#" class="collapsible-header">POOLS AND BEACH</a>
-            <ul class="collapsible-body">
+            <a href="<?php echo base_url("category/resorts/1");?>" class="collapsible-header">POOLS AND BEACH</a>
+            <!--<ul class="collapsible-body">
               <li><a href="">CATEGORY 1</a></li>
               <li><a href="">CATEGORY 2</a></li>
               <li><a href="">CATEGORY 3</a></li>
-            </ul>
+            </ul>-->
           </li>
   				<li class="no-padding">
             <a href="#" class="collapsible-header">THEME PARKS</a>
-            <ul class="collapsible-body">
+            <!--<ul class="collapsible-body">
               <li><a href="">CATEGORY 1</a></li>
               <li><a href="">CATEGORY 2</a></li>
               <li><a href="">CATEGORY 3</a></li>
-            </ul>
+            </ul>-->
           </li>
   				<li class="no-padding">
             <a href="#" class="collapsible-header">NATURE</a>
-            <ul class="collapsible-body">
+            <!--<ul class="collapsible-body">
               <li><a href="">CATEGORY 1</a></li>
               <li><a href="">CATEGORY 2</a></li>
               <li><a href="">CATEGORY 3</a></li>
-            </ul>
+            </ul>-->
           </li>
   			</ul>
 			</div>

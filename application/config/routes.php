@@ -55,9 +55,15 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'pinasikat/login';
 $route['register'] = 'pinasikat/register';
-$route['upload'] = 'pinasikat/upload';
 $route['logout'] = 'pinasikat/logout';
 
 $route['profile/(:any)'] = 'pinasikat/profile/$1';
 $route['registration'] = 'pinasikat/registration';
-$route['uploadform'] = 'pinasikat/uploadform';
+$route['article/new'] = 'pinasikat/uploadform';
+$route['article/create'] = 'pinasikat/upload';
+$route['top'] = 'pinasikat/index';
+
+$route['article/(:any)'] = 'pinasikat/view/$1';
+
+$route['category/restaurants/(:num)'] = 'pinasikat/category/restaurants/$1';
+$route['category/resorts/(:num)'] = 'pinasikat/category/resorts/$1';

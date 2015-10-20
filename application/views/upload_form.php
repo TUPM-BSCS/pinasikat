@@ -2,7 +2,7 @@
   <?php 
     
   ?>
-  <form method="post" enctype="multipart/form-data" action="<?php echo base_url("upload");?>" id="art-form">
+  <form method="post" enctype="multipart/form-data" action="<?php echo base_url("article/create");?>" id="art-form">
     <div class="row">
       <div class="input-field col s12">
         <input id="art_name" name='art_name' type="text" length="500" required>
@@ -40,7 +40,7 @@
     </div>
     <div class="row">
       <div class="col s12">
-        <button class="btn waves-effect waves-light" type="submit">Submit</button>
+        <button class="btn waves-effect waves-light right" type="submit">Submit</button>
       </div>
     </div>
   </form>

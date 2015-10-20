@@ -34,11 +34,27 @@ class Articles extends CI_Model {
 				$i++;
 			}
 		}
+
+		$this->db->where('id',$id)->set('photos',$i)->insert('articles');
 	}
 
-	function fetch_from_all($start, $end){
+	function fetch_from_all($offset){
 		$data = array( 
-			'query' => $this->db->get("articles",$start,$end)
+			'query' => $this->db->get("articles",$offset,10)
+		);
+		return $data;
+	}
+
+	function fetch_from($category, $offset){
+		$data = array(
+			'query' => $this->db->where('category',$category)->get("articles",$offset)
+		);
+		return $data;
+	}
+
+	function fetch($id){
+		$data = array(
+			'query' => $this->db->where('id',$id)->get('articles')
 		);
 		return $data;
 	}
