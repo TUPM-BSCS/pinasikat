@@ -61,9 +61,20 @@ $route['profile/(:any)'] = 'pinasikat/profile/$1';
 $route['registration'] = 'pinasikat/registration';
 $route['article/new'] = 'pinasikat/uploadform';
 $route['article/create'] = 'pinasikat/upload';
-$route['top'] = 'pinasikat/index';
+$route['top'] = 'pinasikat/index/1';
 
 $route['article/(:any)'] = 'pinasikat/view/$1';
 
-$route['category/restaurants/(:num)'] = 'pinasikat/category/restaurants/$1';
-$route['category/resorts/(:num)'] = 'pinasikat/category/resorts/$1';
+$route['restaurants/(:num)'] = 'pinasikat/category/restaurants/$1';
+$route['restaurants'] = 'pinasikat/category/restaurants/1';
+
+$route['resorts/(:num)'] = 'pinasikat/category/resorts/$1';
+$route['resorts'] = 'pinasikat/category/resorts/1';
+
+$route['nature/(:num)'] = 'pinasikat/category/nature/$1';
+$route['nature'] = 'pinasikat/category/nature/1';
+
+$route['themeparks/(:num)'] = 'pinasikat/category/themeparks/$1';
+$route['themeparks'] = 'pinasikat/category/themeparks/1';
+
+$route['(:num)'] = 'pinasikat/index/$1';

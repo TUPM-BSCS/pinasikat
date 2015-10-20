@@ -14,15 +14,14 @@ class Articles extends CI_Model {
 		$count = $this->db->count_all_results();
 
 		$id = $_SESSION['username'].'-'.'article-'.$count;
+		$addr = $_POST['art_addr'].', '.$_POST['art_city'];
 
 		$data = array(
-
 			'id' => $id,
 			'name' => $_POST['art_name'],
-			'addr' => $_POST['art_addr'],
+			'addr' => $addr,
 			'desc' => $_POST['art_desc'],
 			'username' => $_SESSION['username']
-
 		);
 
 		$this->db->insert("articles",$data);
@@ -35,28 +34,37 @@ class Articles extends CI_Model {
 			}
 		}
 
-		$this->db->where('id',$id)->set('photos',$i)->insert('articles');
+		$data['photos'] = $i;
+
+		$this->db->where('id',$id);
+		$this->db->update('articles',$data);
 	}
 
 	function fetch_from_all($offset){
 		$data = array( 
-			'query' => $this->db->get("articles",$offset,10)
+			'query' => $this->db->where('approved',1)->get("articles",$offset,10)
 		);
 		return $data;
 	}
 
 	function fetch_from($category, $offset){
 		$data = array(
-			'query' => $this->db->where('category',$category)->get("articles",$offset)
+			'query' => $this->db->where('category',$category)->where('approved',1)->get("articles",$offset,10)
 		);
 		return $data;
 	}
 
 	function fetch($id){
 		$data = array(
-			'query' => $this->db->where('id',$id)->get('articles')
+			'query' => $this->db->where('id',$id)->where('approved',1)->get('articles'),
 		);
 		return $data;
+	}
+
+	function load_comments($art_id){
+		$data = array(
+			//'comments' = $this->db->where('art_id',$art_id)->
+		);
 	}
 }
 

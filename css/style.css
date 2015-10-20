@@ -42,11 +42,6 @@ main, header, footer{
 	padding-left: 240px;
 }
 
-.contentv1{
-  padding-left: 250px;
-  padding-right: 10px;
-}
-
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -65,11 +60,6 @@ main, header, footer{
 
 .commentrow{
   padding-bottom: 5px;
-}
-
-.headerz{
-  background: #7f7f7f;
-  background: rgba(255,255,255,0.3);
 }
 
 @media only screen and (max-width: 992px){

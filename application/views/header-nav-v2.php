@@ -9,37 +9,32 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <script type="text/javascript" src="<?php echo base_url();?>js/jquery.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>js/materialize.min.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>js/scripts.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>js/login.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function(){
-        <?php
-          if( isset($_SESSION['msg']) && isset($_SESSION['notified']) ){
-            if(!$_SESSION['notified']){
-              echo "Materialize.toast('".$_SESSION['msg']."',3000);";
-              $_SESSION['notified'] = TRUE;
-            }
-            unset($_SESSION['msg']);                
-          }
-        ?>
-      });
-    </script>
-    
   </head>
 <body>
 
-	<header>
-	  <nav class="headerz">
+  <script type="text/javascript" src="<?php echo base_url();?>js/jquery.js"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>js/materialize.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>js/scripts.js"></script>
+  <script type="text/javascript" src="<?php echo base_url();?>js/login.js"></script>
+	<script type="text/javascript">
+    $(document).ready(function(){
+      <?php
+        if( isset($_SESSION['msg']) && isset($_SESSION['notified']) ){
+          if(!$_SESSION['notified']){
+            echo "Materialize.toast('".$_SESSION['msg']."',3000);";
+            $_SESSION['notified'] = TRUE;
+          }
+          unset($_SESSION['msg']);                
+        }
+      ?>
+    });
+  </script>
+
+  <header>
+	  <nav class="blue-grey lighten-1">
 			<div class="nav-wrapper headerz">
 			  <a href="#" data-activates="mobile-demo" class="button-collapse white-text"><i class="material-icons">menu</i></a>
-<<<<<<< Updated upstream
-			  <a href="<?php echo base_url();?>" class="brand-logo right"><img src="<?php echo base_url();?>images/logo2.png" class="responsive-img"></a>
-=======
-			  <a href="<?php echo base_url();?>" class="brand-logo center"><img src="<?php echo base_url();?>images/logo2.png" class="responsive-img"></a>
->>>>>>> Stashed changes
-        </ul>
+			  <a href="<?php echo base_url();?>" class="brand-logo center"><img src="<?php echo base_url();?>images/logo2.png"></a>
 			  <ul class="side-nav fixed collapsible collapsible-accordion" id="mobile-demo">
           <li class="no-padding" style="margin-top:62px">
             <a class="collapsible-header">ACCOUNT</a>
@@ -47,7 +42,7 @@
               <?php
                 if(!isset($_SESSION['username']))
                   echo '
-                  <li><a href="#login-modal" class="modal-trigger hide-on-small-only">LOGIN</a></li>
+                  <li><a href="#login-modal" class="modal-trigger">LOGIN</a></li>
                   <li>'.anchor('registration', 'REGISTER').'</li>
                   ';
                 else{
@@ -60,7 +55,7 @@
           </li>
           <li><a href="<?php echo base_url("top");?>">TOP 10</a></li>
   				<li class="no-padding">
-            <a href="<?php echo base_url("category/restaurants/1");?>" class="collapsible-header">RESTAURANTS</a>
+            <a href="<?php echo base_url("restaurants/1");?>" class="collapsible-header">RESTAURANTS</a>
             <!--<ul class="collapsible-body">
               <li><a href="">CATEGORY 1</a></li>
               <li><a href="">CATEGORY 2</a></li>
@@ -68,7 +63,7 @@
             </ul>-->
           </li>
   				<li class="no-padding">
-            <a href="<?php echo base_url("category/resorts/1");?>" class="collapsible-header">POOLS AND BEACH</a>
+            <a href="<?php echo base_url("resorts/1");?>" class="collapsible-header">POOLS AND BEACH</a>
             <!--<ul class="collapsible-body">
               <li><a href="">CATEGORY 1</a></li>
               <li><a href="">CATEGORY 2</a></li>
@@ -76,7 +71,7 @@
             </ul>-->
           </li>
   				<li class="no-padding">
-            <a href="#" class="collapsible-header">THEME PARKS</a>
+            <a href="<?php echo base_url("themeparks/1");?>" class="collapsible-header">THEME PARKS</a>
             <!--<ul class="collapsible-body">
               <li><a href="">CATEGORY 1</a></li>
               <li><a href="">CATEGORY 2</a></li>
@@ -84,7 +79,7 @@
             </ul>-->
           </li>
   				<li class="no-padding">
-            <a href="#" class="collapsible-header">NATURE</a>
+            <a href="<?php echo base_url("nature/1");?>" class="collapsible-header">NATURE</a>
             <!--<ul class="collapsible-body">
               <li><a href="">CATEGORY 1</a></li>
               <li><a href="">CATEGORY 2</a></li>

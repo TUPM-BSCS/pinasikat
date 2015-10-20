@@ -6,11 +6,11 @@ class Pinasikat extends CI_Controller{
 		parent::__construct();
 	}
 
-	public function index(){
+	public function index($page = 1){
 		$this->load->model('articles');
 		$this->load->view('header-nav-v2');
 		$this->load->view('modals');
-		$this->load->view('content', $this->articles->fetch_from_all(0));
+		$this->load->view('content', $this->articles->fetch_from_all(($page*10)-10));
 		$this->load->view('footer');
 	}
 
@@ -99,10 +99,14 @@ class Pinasikat extends CI_Controller{
 
 	public function category($category, $page){
 		$this->load->model('articles');
-		$data = $this->articles->fetch_from($category,$page*10);
+		$data = $this->articles->fetch_from($category,($page*10)-10);
 		$this->load->view('header-nav-v2');
 		$this->load->view('content',$data);
 		$this->load->view('footer');
+	}
+
+	public function load_comments(){
+
 	}
 }
 
