@@ -7,7 +7,7 @@
 	</div>
 	<div class="row">
 		<div class="col s10 offset-s1 input-field">
-			<input type=text id='lname' name='lname' required length='10'>
+			<input type=text id='lname' name='lname' required length='15'>
 			<label for='lname' id='lname-label'>Last Name</label>
 		</div>
 	</div>

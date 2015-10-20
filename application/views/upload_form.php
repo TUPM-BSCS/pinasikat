@@ -4,14 +4,14 @@
   ?>
   <form method="post" enctype="multipart/form-data" action="<?php echo base_url("article/create");?>" id="art-form">
     <div class="row">
-      <div class="input-field col s12">
-        <input id="art_name" name='art_name' type="text" length="500" required>
+      <div class="input-field col s12"> 
+        <input id="art_name" name='art_name' type="text" length="120" required>
         <label for="art_name">Title</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <textarea id="art_desc" name='art_desc' class="materialize-textarea" length="120" required></textarea>
+        <textarea id="art_desc" name='art_desc' class="materialize-textarea" length="500" required></textarea>
         <label for="art_desc">About This Place</label>
       </div>
     </div>
