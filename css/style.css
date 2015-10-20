@@ -67,6 +67,11 @@ main, header, footer{
   padding-bottom: 5px;
 }
 
+.headerz{
+  background: #7f7f7f;
+  background: rgba(255,255,255,0.3);
+}
+
 @media only screen and (max-width: 992px){
 	main, header, footer {
 		padding-left: 0px;
