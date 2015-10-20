@@ -31,11 +31,10 @@
 <body>
 
 	<header>
-	  <nav>
-			<div class="nav-wrapper">
-        
+	  <nav class="headerz">
+			<div class="nav-wrapper headerz">
 			  <a href="#" data-activates="mobile-demo" class="button-collapse white-text"><i class="material-icons">menu</i></a>
-			  <a href="<?php echo base_url();?>" class="brand-logo center"><img src="<?php echo base_url();?>images/logo.png" class="responsive-img"></a>
+			  <a href="<?php echo base_url();?>" class="brand-logo right"><img src="<?php echo base_url();?>images/logo2.png" class="responsive-img"></a>
         </ul>
 			  <ul class="side-nav fixed collapsible collapsible-accordion" id="mobile-demo">
           <li class="no-padding" style="margin-top:62px">

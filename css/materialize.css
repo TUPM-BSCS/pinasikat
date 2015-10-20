@@ -201,7 +201,7 @@
 .pink-text.text-darken-3 {
   color: #ad1457 !important; }
 
-.pink.darken-4 {
+.pink.darken-4 {f
   background-color: #880e4f !important; }
 
 .pink-text.text-darken-4 {
@@ -1660,7 +1660,13 @@ html {
  * Remove default margin.
  */
 body {
-  margin: 0; }
+  margin: 0;
+  background-image: url("../images/bg.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646; }
 
 /* HTML5 display definitions
    ========================================================================== */
