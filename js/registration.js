@@ -17,7 +17,7 @@ $(document).ready(function(){
       $("#username-label").text("Username can not exceed 20 characters.");
       flag = 1;
     }
-    else{
+    else{ss
       flag = 0;
     }
   });
@@ -143,15 +143,38 @@ $('#submit-reg-form').click(function(){
   if (flag != 1) {*/
 
     // Start of post
+/*
+    if((username == "") || (password1 == "") || (fname == "") || (fname == "")){
+      flag = 1;
+      Materialize.toast('Please fill up all fields.', 3000)
+    }
+    else{
+      flag = 0;
+    } */
+
+    if(fname == "") {
+      flag = 1;
+       $("#fname-label").text("First Name cannot be empty");
+    }    if(username == "") {
+      flag = 1;
+       $("#username-label").text("Username cannot be empty");
+    }    if(lname == "") {
+      flag = 1;
+       $("#lname-label").text("Last Name cannot be empty");
+    }    if(password1 == "") {
+      flag = 1;
+       $("#password1-label").text("Password field cannot be empty");
+    }  if(password2 == "") {
+      flag = 1;
+       $("#password2-label").text("Password field cannot be empty");
+    }
     if (password1 !== password2){
       flag = 1;
       $("#password1-label").text("Passwords do not match each other.");
       $("#password2-label").text("Passwords do not match each other.");
       //Materialize.toast('Invalid password!', 3000)
     }
-    else{
-      flag = 0;
-    }
+    
     if(flag == 0){
       $.post('http://localhost/pinasikat/register',
       {
