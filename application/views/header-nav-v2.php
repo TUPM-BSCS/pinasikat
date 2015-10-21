@@ -33,7 +33,7 @@
 	  <nav class="blue-grey lighten-1">
 			<div class="nav-wrapper headerz">
 			  <a href="#" data-activates="mobile-demo" class="button-collapse white-text"><i class="material-icons">menu</i></a>
-			  <a href="<?php echo base_url();?>" class="brand-logo center"><img src="<?php echo base_url();?>images/logo2.png" class="responsive-img" alt="Pinasikat" id="logo"></a>
+			  <a href="<?php echo base_url();?>" class="brand-logo center"><img src="<?php echo base_url();?>images/logo2.png" alt="Pinasikat" id="logo"></a>
 			  <ul class="side-nav fixed collapsible collapsible-accordion" id="mobile-demo">
           <li class="no-padding" style="margin-top:62px">
             <a class="collapsible-header">ACCOUNT</a>
