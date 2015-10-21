@@ -1,7 +1,7 @@
 
 <main>
   <div class="row">
-    <div class="col s12 center black"> <br />
+    <div class="col s12 center blue-grey lighten-4"> <br />
       <img src="<?php echo base_url();?>images/user.png" class="circle responsive-img"> <br /><br />
     </div>
     <div class="col s12 white">

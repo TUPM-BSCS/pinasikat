@@ -25,5 +25,9 @@ $(document).ready(function(){
   $('.slider').slider();
 
   $('.materialboxed').materialbox();
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
   
 });

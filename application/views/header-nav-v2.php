@@ -3,10 +3,9 @@
   <head>
     <title>PINASikat</title>
     <meta charset="utf-8">
-    <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>css/materialize.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>css/style.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="<?php echo base_url();?>css/dropzone.css"  media="screen,projection"/>
-
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url("css/materialize.css");?>"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url("css/style.css");?>"  media="screen,projection"/>
+    <link href="<?php echo base_url("material-icons");?>" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   </head>
@@ -53,39 +52,20 @@
               ?>
             </ul>
           </li>
-          <li><a href="<?php echo base_url("top");?>">TOP 10</a></li>
+          <li><a href="<?php echo base_url();?>">HOME</a></li>
   				<li class="no-padding">
             <a href="<?php echo base_url("restaurants/1");?>" class="collapsible-header">RESTAURANTS</a>
-            <!--<ul class="collapsible-body">
-              <li><a href="">CATEGORY 1</a></li>
-              <li><a href="">CATEGORY 2</a></li>
-              <li><a href="">CATEGORY 3</a></li>
-            </ul>-->
           </li>
   				<li class="no-padding">
             <a href="<?php echo base_url("resorts/1");?>" class="collapsible-header">POOLS AND BEACH</a>
-            <!--<ul class="collapsible-body">
-              <li><a href="">CATEGORY 1</a></li>
-              <li><a href="">CATEGORY 2</a></li>
-              <li><a href="">CATEGORY 3</a></li>
-            </ul>-->
           </li>
   				<li class="no-padding">
             <a href="<?php echo base_url("themeparks/1");?>" class="collapsible-header">THEME PARKS</a>
-            <!--<ul class="collapsible-body">
-              <li><a href="">CATEGORY 1</a></li>
-              <li><a href="">CATEGORY 2</a></li>
-              <li><a href="">CATEGORY 3</a></li>
-            </ul>-->
           </li>
   				<li class="no-padding">
             <a href="<?php echo base_url("nature/1");?>" class="collapsible-header">NATURE</a>
-            <!--<ul class="collapsible-body">
-              <li><a href="">CATEGORY 1</a></li>
-              <li><a href="">CATEGORY 2</a></li>
-              <li><a href="">CATEGORY 3</a></li>
-            </ul>-->
           </li>
+          <?php if(isset($_SESSION['admin'])) echo '<li><a href="'.base_url("admin").'">ADMIN</a></li>';?>
   			</ul>
 			</div>
 	  </nav>

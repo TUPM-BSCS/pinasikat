@@ -153,7 +153,7 @@ $('#submit-reg-form').click(function(){
       flag = 0;
     }
     if(flag == 0){
-      $.post('register',
+      $.post('http://localhost/pinasikat/register',
       {
         'username': username,
         'password': password1,

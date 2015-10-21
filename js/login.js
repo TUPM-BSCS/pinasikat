@@ -11,7 +11,7 @@ $('#submit').click(function(){
   var password = $('#password').val();
 
   $.post(
-    "login",
+    "http://localhost/pinasikat/login",
     {
       'username': username,
       'password': password

@@ -53,6 +53,16 @@ $route['default_controller'] = 'pinasikat';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['admin'] = 'pinasikat/admin';
+$route['adminlogin'] = 'pinasikat/adminlogin';
+$route['adminlogout'] = 'pinasikat/adminlogout';
+$route['inspect/(:any)'] = 'pinasikat/inspect/$1';
+$route['reject/(:any)'] = 'pinasikat/reject/$1';
+$route['approve/(:any)'] = 'pinasikat/approve/$1';
+$route['hold/(:any)'] = 'pinasikat/hold/$1';
+
+$route['search?(:any)'] = 'pinasikat/search';
+
 $route['login'] = 'pinasikat/login';
 $route['register'] = 'pinasikat/register';
 $route['logout'] = 'pinasikat/logout';
@@ -61,7 +71,6 @@ $route['profile/(:any)'] = 'pinasikat/profile/$1';
 $route['registration'] = 'pinasikat/registration';
 $route['article/new'] = 'pinasikat/uploadform';
 $route['article/create'] = 'pinasikat/upload';
-$route['top'] = 'pinasikat/index/1';
 
 $route['article/(:any)'] = 'pinasikat/view/$1';
 
@@ -78,3 +87,9 @@ $route['themeparks/(:num)'] = 'pinasikat/category/themeparks/$1';
 $route['themeparks'] = 'pinasikat/category/themeparks/1';
 
 $route['(:num)'] = 'pinasikat/index/$1';
+
+$route['load_comments'] = 'pinasikat/load_comments';
+$route['count_comments'] = 'pinasikat/count_comments';
+$route['submit_comment'] = 'pinasikat/submit_comment';
+$route['has_commented'] = 'pinasikat/has_commented';
+
