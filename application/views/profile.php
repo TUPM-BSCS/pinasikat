@@ -1,39 +1,92 @@
 
 <main>
   <div class="row">
-    <div class="col s12 center blue-grey lighten-4"> <br />
-      <img src="<?php echo base_url();?>images/user.png" class="circle responsive-img"> <br /><br />
-    </div>
-    <div class="col s12 white">
-      <h4 class="right"> User's Personal Information </h4>
+    <div class="col s12 center blue-grey lighten-4">
+      <h4 class="right">Dashboard</h4>
     </div>
   </div>
-  <div class="row left-align ">
+  <div class="row">
+  
     <div class="col s12">
-      <div class="row">
-        <div class="col s2"><img src="<?php echo base_url();?>images/usersmall.png" class="circle right responsive-img"> </div>
-        <div class="col s10"><p class="left"><h5 class="white-text">Maria Lorem Ipsum dela Lorem Ipsum</h5><h6 class="white-text">NAME</h6><p></div>
-      </div>
-      <div class="row">
-        <div class="col s2"><img src="<?php echo base_url();?>images/house.png" class="circle right responsive-img"> </div>
-        <div class="col s10"> <p><h5 class="white-text">Block 3 Lot 3, Lorem Ipsum, Lorem City, Ipsum Province </h5><h6 class="white-text">ADDRESS</h6><p></div>
-      </div>
-      <div class="row">
-        <div class="col s2"><img src="<?php echo base_url();?>images/light.png" class="circle right responsive-img"> </div>
-        <div class="col s10"> <p><h5 class="white-text">Lorem Ipsum</h5><h6 class="white-text">PROFESSION</h6><p></div>
-      </div>
-      <div class="row">
-        <div class="col s2"><img src="<?php echo base_url();?>images/grad.png" class="circle right responsive-img"> </div>
-        <div class="col s10"> <p><h5 class="white-text">Lorem Ipsum University of the Philippines</h5><h6 class="white-text">EDUCATION</h6><p></div>
-      </div>
-      <div class="row">
-        <div class="col s2"><img src="<?php echo base_url();?>images/teleph.png" class="circle right responsive-img"> </div>
-        <div class="col s10"> <p><h5 class="white-text">0914 768 2345</h5><h6 class="white-text">CONTACT INFORMATION</h6><p></div>
-      </div>
-      <div class="row">
-        <div class="col s2"><img src="<?php echo base_url();?>images/email.png" class="circle right responsive-img"> </div>
-        <div class="col s10"> <p><h5 class="white-text">LoremIpsum@outlook.ph</h5><h6 class="white-text">EMAIL ADDRESS</h6><p> </div>
+      <ul class="tabs">
+        <li class="tab col s4"><a class="black-text" href="#test1">Pending Articles</a></li>
+        <li class="tab col s4"><a class="black-text" href="#test2">Approved Articles</a></li>
+        <li class="tab col s4"><a class="black-text" href="#test3">Rejected Articles</a></li>
+      </ul>
+    </div>
+    
+    <div id="test1" class="col s12">
+      <div class="row card-panel">
+        <table class="highlight centered">
+          <thead>
+            <tr>
+              <th data-field="id">Article Name</th>
+              <th data-field="id">Category</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <?php
+            foreach ($pending->result() as $row) {
+              echo '<tr>
+                      <td><a href="'.base_url("inspect/".$row->id).'">'.$row->name.'</a></td>
+                      <td>'.strtoupper($row->category).'</td>
+                    </tr>';
+            }
+          ?>
+          </tbody>
+        </table>
       </div>
     </div>
+
+    <div id="test2" class="col s12">
+      <div class="row card-panel">
+        <table class="highlight centered">
+          <thead>
+            <tr>
+              <th data-field="id">Article Name</th>
+              <th data-field="id">Category</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <?php
+            foreach ($approved->result() as $row) {
+              echo '<tr>
+                      <td><a href="'.base_url("inspect/".$row->id).'">'.$row->name.'</a></td>
+                      <td>'.strtoupper($row->category).'</td>
+                    </tr>';
+            }
+          ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="test3" class="col s12">
+      <div class="row card-panel">
+        <table class="highlight centered">
+          <thead>
+            <tr>
+              <th data-field="id">Article Name</th>
+              <th data-field="id">Category</th>
+            </tr>
+          </thead>
+
+          <tbody>
+          <?php
+            foreach ($rejected->result() as $row) {
+              echo '<tr>
+                      <td><a href="'.base_url("inspect/".$row->id).'">'.$row->name.'</a></td>
+                      <td>'.strtoupper($row->category).'</td>
+                    </tr>';
+            }
+          ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
   </div>
+
 </main>

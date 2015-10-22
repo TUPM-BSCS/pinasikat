@@ -24,5 +24,28 @@
     }
   ?>
   </div>
+  <ul class="pagination">
+    <?php
+      if($page <= 1)
+        echo '<li class="disabled"><i class="material-icons">chevron_left</i></li>';
+      else
+        echo '<li class="waves-effect"><a href="'.base_url($page-1).'"><i class="material-icons">chevron_left</i></a></li>';
+    ?>
+    <?php
+      for($i = 1; $i <= $count; $i++){
+        if($page == $i)
+          echo '<li class="waves-effect active blue-grey white-text"><a href="'.base_url($i).'">'.$i.'</a></li>';
+        else
+          echo '<li class="waves-effect"><a href="'.base_url($i).'">'.$i.'</a></li>';
+      }
+    ?>
+    <?php
+      if($count == $page) 
+        echo '<li class="disabled"><i class="material-icons">chevron_right</i></li>';
+      else
+        echo '<li class="waves-effect"><a href="'.base_url($page+1).'"><i class="material-icons">chevron_right</i></a></li>';
+    ?>
+  </ul>
+
 </main>
 

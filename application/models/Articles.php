@@ -42,10 +42,16 @@ class Articles extends CI_Model {
 	}
 
 	function fetch_from_all($offset){
-		//$query = $this->db->where('approved',1)->get("articles",999999,$offset)
+		$query = $this->db->where('approved',1)->get("articles",999999,$offset);
+		$count = $query->num_rows();
+		if($count % 10){
+			$count = (($count - ($count % 10))/10) +1 ;
+		}else{
+			$count = $count / 10;
+		}
 		$data = array( 
-			'query' => $this->db->where('approved',1)->get("articles",10,$offset)
-			//'count' => $query->row_count()
+			'query' => $this->db->where('approved',1)->get("articles",10,$offset),
+			'count' => $count
 		);
 		return $data;
 	}
@@ -58,8 +64,16 @@ class Articles extends CI_Model {
 	}
 
 	function fetch_from($category, $offset){
+		$query = $this->db->where('category',$category)->where('approved',1)->get("articles",999999,$offset);
+		$count = $query->num_rows();
+		if($count % 10){
+			$count = (($count - ($count % 10))/10) +1 ;
+		}else{
+			$count = $count / 10;
+		}
 		$data = array(
-			'query' => $this->db->where('category',$category)->where('approved',1)->get("articles",10,$offset)
+			'query' => $this->db->where('category',$category)->where('approved',1)->get("articles",10,$offset),
+			'count' => $count
 		);
 		return $data;
 	}
@@ -78,23 +92,11 @@ class Articles extends CI_Model {
 		return $data;
 	}
 
-	function fetch_approved_articles_of($username){
+	function fetch_articles_of($username){
 		$data = array(
-			'query' => $this->db->where('username',$username)->where('approved',1)->get('articles')
-		);
-		return $data;
-	}
-
-	function fetch_pending_articles_of($username){
-		$data = array(
-			'query' => $this->db->where('username',$username)->where('approved',0)->get('articles')
-		);
-		return $data;
-	}
-
-	function fetch_rejected_articles_of($username){
-		$data = array(
-			'query' => $this->db->where('username',$username)->where('approved',-1)->get('articles')
+			'approved' => $this->db->where('username',$username)->where('approved',1)->get('articles'),
+			'pending' => $this->db->where('username',$username)->where('approved',0)->get('articles'),
+			'rejected' => $this->db->where('username',$username)->where('approved',-1)->get('articles')
 		);
 		return $data;
 	}
@@ -163,8 +165,17 @@ class Articles extends CI_Model {
 		$this->db->like('name',$item);
 		$this->db->or_like('category',$item);
 		$this->db->where('approved',1);
+		$query = $this->db->get('articles');
+		$count = $query->num_rows();
+		if($count % 10){
+			$count = (($count - ($count % 10))/10) +1 ;
+		}else{
+			$count = $count / 10;
+		}
 		$data = array(
-			'query' => $this->db->get('articles')
+			'query' => $query,
+			'count' => $count,
+
 		);
 		return $data;
 	}

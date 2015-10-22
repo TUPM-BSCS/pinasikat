@@ -10,7 +10,9 @@ class Pinasikat extends CI_Controller{
 		$this->load->model('articles');
 		$this->load->view('header-nav-v2');
 		$this->load->view('modals');
-		$this->load->view('content', $this->articles->fetch_from_all(($page*10)-10));
+		$data = $this->articles->fetch_from_all(($page*10)-10);
+		$data['page'] = $page;
+		$this->load->view('content', $data);
 		$this->load->view('footer');
 	}
 
@@ -36,7 +38,11 @@ class Pinasikat extends CI_Controller{
 		if(!isset($_SESSION['username'])){
 			$this->load->view('header-nav-v2');
 			$this->load->view('modals');
-			$this->load->view('register');
+			if(isset($_SESSION['last_input']))
+				$this->load->view('register',$_SESSION['last_input']);
+			else
+				$this->load->view('register');
+			unset($_SESSION['last_input']);
 			$this->load->view('footer');
 		}else
 			redirect(base_url());
@@ -47,24 +53,23 @@ class Pinasikat extends CI_Controller{
 			$this->load->model('accounts');
 			if($this->accounts->register()){
 				$_SESSION['notified'] = FALSE;
-				$_SESSION['msg'] = 'Registration succesful! You can now login.';
-				//redirect(base_url());
-				echo $result = 1;
+				unset($_SESSION['last_input']);
+				redirect(base_url("registration"));
 			}else{
-				//$_SESSION['notified'] = FALSE;
-				//redirect(base_url());
-				echo $result = 0;
+				$_SESSION['notified'] = FALSE;
+				redirect(base_url("registration"));
 			}
 		}
 		else
 			redirect(base_url());
 	}
 
-	public function profile($username){
+	public function profile(){
 		if(isset($_SESSION['username'])){
+			$this->load->model('articles');
 			$this->load->view('header-nav-v2');
 			$this->load->view('modals');
-			$this->load->view('profile');
+			$this->load->view('profile', $this->articles->fetch_articles_of($_SESSION['username']));
 			$this->load->view('footer');
 		}
 		else
@@ -117,6 +122,7 @@ class Pinasikat extends CI_Controller{
 		$this->load->model('articles');
 		$data = $this->articles->fetch_from($category,($page*10)-10);
 		$this->load->view('header-nav-v2');
+		$data['page'] = $page;
 		$this->load->view('content',$data);
 		$this->load->view('footer');
 	}
@@ -231,6 +237,7 @@ class Pinasikat extends CI_Controller{
 			$data = $this->articles->usersearch($this->input->get('item'));
 			$this->load->view('header-nav-v2');
 			$this->load->view('modals');
+			$data['page'] = $this->input->get('page');
 			$this->load->view('content', $data);
 			$this->load->view('footer');
 		}
